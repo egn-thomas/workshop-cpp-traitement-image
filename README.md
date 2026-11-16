@@ -1,0 +1,1 @@
+# workshop-cpp-traitement-image
