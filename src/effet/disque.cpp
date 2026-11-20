@@ -7,8 +7,9 @@ namespace effet
     sil::Image disque(sil::Image image)
     {
         int choix;
-        std::cout << "Veuillez entrer la taille du rayon du disque souhaitée (< à 250) : " << std::endl;
+        std::cout << "Veuillez entrer la taille du rayon du disque souhaitée (< à 250) : ";
         std::cin >> choix;
+        std::cout << "\033[2J\033[H";
 
         int xo = image.width() / 2;
         int yo = image.height() / 2;

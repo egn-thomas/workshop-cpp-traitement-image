@@ -31,11 +31,6 @@ namespace effet
     sil::Image normalisationHistogramme(sil::Image image);
     sil::Image vortex(sil::Image image);
     sil::Image convolution(sil::Image image);
-    sil::Image netteteContours(sil::Image image);
-    sil::Image filtresSeparables(sil::Image image);
-    sil::Image differencesGaussiennes(sil::Image image);
-    sil::Image kMeans(sil::Image image);
-    sil::Image kuwahara(sil::Image image);
     sil::Image diamondSquare(sil::Image image);
     sil::Image colorerHeightMap(sil::Image image);
 

@@ -8,8 +8,10 @@ namespace effet
     sil::Image mosaique(sil::Image image)
     {
         int taille;
-        std::cout << "Veuillez entrer le nombre de tuiles sur un coté de la mosaique : " << std::endl;
+        std::cout << "Veuillez entrer le nombre de tuiles sur un coté de la mosaique : ";
         std::cin >> taille;
+
+        std::cout << "\033[2J\033[H";
 
         sil::Image new_image{image.width() * taille, image.height() * taille};
 

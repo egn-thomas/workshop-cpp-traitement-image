@@ -9,8 +9,9 @@ namespace effet
     sil::Image glitch(sil::Image image)
     {
         int quantite;
-        std::cout << "Veuillez entrer la force de l'effet (entre 1 et 10) : " << std::endl;
+        std::cout << "Veuillez entrer la force de l'effet (entre 1 et 10) : ";
         std::cin >> quantite;
+        std::cout << "\033[2J\033[H";
 
         for (int i = 0; i < quantite * 15; i++)
         {

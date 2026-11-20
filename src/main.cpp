@@ -120,8 +120,6 @@ int main()
         std::cout << "Worshop S1 - Cpp - traitement d'images\n"
                   << std::endl;
 
-        std::vector<std::string> imagesDisponibles = setupImages();
-
         int choix{0};
         std::cout << "Choisissez un effet :" << std::endl;
         std::cout << " 0 - Quitter" << std::endl;
@@ -144,26 +142,21 @@ int main()
         std::cout << "17 - Glitch" << std::endl;
         std::cout << "18 - Tri de pixels" << std::endl;
         std::cout << "19 - Fractales de Mandelbrot" << std::endl;
-        std::cout << "20 - Dégradés dans l'espace de couleur lab" << std::endl;
+        std::cout << "20 - Dégradés" << std::endl;
         std::cout << "21 - Tramage" << std::endl;
         std::cout << "22 - Normalisation de l'histogramme" << std::endl;
         std::cout << "23 - Vortex" << std::endl;
         std::cout << "24 - Convolution" << std::endl;
-        std::cout << "25 - Neteté, contours, etc..." << std::endl;
-        std::cout << "26 - Filtres séparables" << std::endl;
-        std::cout << "27 - Differrences de gaussiennes" << std::endl;
-        std::cout << "28 - K-means" << std::endl;
-        std::cout << "29 - Filtre de kuwahara" << std::endl;
-        std::cout << "30 - Diamond square" << std::endl;
-        std::cout << "31 - Colorer la height map" << std::endl;
-
-        std::cout << "100 - Tout" << std::endl;
+        std::cout << "25 - Diamond square" << std::endl;
+        std::cout << "26 - Colorer la height map" << std::endl;
 
         std::cout << "\n\nVotre choix : ";
 
         std::cin >> choix;
 
         nettoyerTerminal();
+
+        std::vector<std::string> imagesDisponibles = setupImages();
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
@@ -244,44 +237,11 @@ int main()
             appliquerEffet(imagesDisponibles, effet::convolution, "Convolution", "output/image_convolution.png");
             break;
         case 25:
-            appliquerEffet(imagesDisponibles, effet::netteteContours, "Netteté et contours", "output/image_nettete_contours.png");
-            break;
-        case 26:
-            appliquerEffet(imagesDisponibles, effet::filtresSeparables, "Filtres séparables", "output/image_filtres_separables.png");
-            break;
-        case 27:
-            appliquerEffet(imagesDisponibles, effet::differencesGaussiennes, "Différences de gaussiennes", "output/image_differences_gaussiennes.png");
-            break;
-        case 28:
-            appliquerEffet(imagesDisponibles, effet::kMeans, "K-means", "output/image_kmeans.png");
-            break;
-        case 29:
-            appliquerEffet(imagesDisponibles, effet::kuwahara, "Filtre de Kuwahara", "output/image_kuwahara.png");
-            break;
-        case 30:
             creerImage(513, 513, effet::diamondSquare, "Diamond square", "output/image_diamond_square.png");
             break;
-        case 31:
+        case 26:
             appliquerEffet(imagesDisponibles, effet::colorerHeightMap, "Colorer la height map", "output/image_height_map_coloree.png");
             break;
-        case 100:
-            try
-            {
-                std::cout << "Vous avez sélectionné l'enchaînement RGB split, échange des canaux et négatif.\n"
-                          << std::endl;
-
-                sil::Image image{effet::choisirImage(imagesDisponibles)};
-                sil::Image imageModifiee1{effet::echangerLesCanaux(std::move(image))};
-                sil::Image imageModifiee2{effet::rgbSplit(std::move(imageModifiee1))};
-                sil::Image imageModifiee3{effet::inverser(std::move(imageModifiee2))};
-                imageModifiee3.save("output/boum.png");
-                std::cout << "Image modifiée enregistrée dans output/boum.png.\n\n\n"
-                          << std::endl;
-            }
-            catch (std::exception const &erreur)
-            {
-                std::cerr << "Impossible de traiter l'image : " << erreur.what() << std::endl;
-            }
         default:
             std::cerr << "Choix invalide." << std::endl;
         }

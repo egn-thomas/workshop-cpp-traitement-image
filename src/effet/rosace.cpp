@@ -11,10 +11,15 @@ namespace effet
         int rayon;
         int epaisseur;
 
-        std::cout << "Veuillez entrer la taille du rayon des cerlce souhaitée (< à 250) : " << std::endl;
+        std::cout << "Veuillez entrer la taille du rayon des cerlce souhaitée (< à 250) : ";
         std::cin >> rayon;
-        std::cout << "Veuillez entrer l'épaisseur du tracé des cercle souhaitée (< à 50) : " << std::endl;
+
+        std::cout << "\033[2J\033[H";
+
+        std::cout << "Veuillez entrer l'épaisseur du tracé des cercle souhaitée (< à 50) : ";
         std::cin >> epaisseur;
+
+        std::cout << "\033[2J\033[H";
 
         int xo = image.width() / 2;
         int yo = image.height() / 2;

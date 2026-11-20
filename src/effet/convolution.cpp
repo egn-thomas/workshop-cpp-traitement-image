@@ -84,13 +84,10 @@ namespace effet
                             nb_voisins++;
                         }
                     }
-                    if (x % 2 == 0)
-                    {
-                        new_image.pixel(x, y) = {
-                            red / nb_voisins,
-                            green / nb_voisins,
-                            blue / nb_voisins};
-                    }
+                    new_image.pixel(x, y) = {
+                        red / nb_voisins,
+                        green / nb_voisins,
+                        blue / nb_voisins};
                 }
             }
 
@@ -115,13 +112,10 @@ namespace effet
                             nb_voisins++;
                         }
                     }
-                    if (y % 2 == 1)
-                    {
-                        new_image.pixel(x, y) = {
-                            red / nb_voisins,
-                            green / nb_voisins,
-                            blue / nb_voisins};
-                    }
+                    new_image.pixel(x, y) = {
+                        red / nb_voisins,
+                        green / nb_voisins,
+                        blue / nb_voisins};
                 }
             }
         }

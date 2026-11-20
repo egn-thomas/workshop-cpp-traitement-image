@@ -7,11 +7,14 @@ namespace effet
 {
     sil::Image luminosite(sil::Image image)
     {
-        std::cout << "Choisissez l'operation\n1 - Augmenter la luminosité\n2 - Baisser la luminosité" << std::endl;
-
         int choix;
 
+        std::cout << "Choisissez l'operation\n1 - Augmenter la luminosité\n2 - Baisser la luminosité" << std::endl;
+        std::cout << "\nVotre choix : ";
+
         std::cin >> choix;
+
+        std::cout << "\033[2J\033[H";
 
         for (glm::vec3 &color : image.pixels())
         {
